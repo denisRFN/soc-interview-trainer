@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#b47b4d">
+    <meta name="description" content="SOC Analyst Interview Trainer PWA offline">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <title>SOC Interview Trainer</title>
+  </head>
+  <body>
+    <div id="app" class="app-shell">
+      <header class="hero">
+        <div class="logo">SOC</div>
+        <div class="hero-copy">
+          <p class="eyebrow">Persist SRL readiness</p>
+          <h1>Interview Trainer</h1>
+          <p>Invata, testeaza si repeta raspunsuri SOC direct de pe telefon.</p>
+        </div>
+      </header>
+
+      <main class="content">
+        <section id="view-learn" class="view active">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Learning path</p>
+              <h2>Capitole</h2>
+            </div>
+            <button id="markDoneBtn" class="pill primary">Complet</button>
+          </div>
+          <div class="learn-layout">
+            <div id="chapterList" class="chapter-list"></div>
+            <article class="card article-card">
+              <h3 id="chapterTitle">Alege un capitol</h3>
+              <pre id="chapterContent">Selecteaza un capitol pentru a incepe.</pre>
+            </article>
+          </div>
+        </section>
+
+        <section id="view-quiz" class="view">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">30 random / test</p>
+              <h2>Quiz</h2>
+            </div>
+            <button id="startQuizBtn" class="pill primary">Start</button>
+          </div>
+          <div class="card quiz-card">
+            <div id="quizMeta" class="meta">Banca: 362 intrebari. Apasa Start.</div>
+            <h3 id="questionText">Gata pentru test?</h3>
+            <div id="answers" class="answers"></div>
+            <button id="submitAnswerBtn" class="wide primary">Raspunde</button>
+            <div id="explanation" class="explanation"></div>
+          </div>
+        </section>
+
+        <section id="view-cards" class="view">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Active recall</p>
+              <h2>Flashcards</h2>
+            </div>
+          </div>
+          <div class="card flash-card">
+            <div id="flashFront" class="flash-front"></div>
+            <div id="flashBack" class="flash-back"></div>
+            <div class="row-actions">
+              <button id="prevCardBtn" class="pill">Anterior</button>
+              <button id="toggleCardBtn" class="pill primary">Arata</button>
+              <button id="nextCardBtn" class="pill">Urmator</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-interview" class="view">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">2-3 minute / raspuns</p>
+              <h2>Simulator</h2>
+            </div>
+            <button id="newPromptBtn" class="pill primary">Scenariu nou</button>
+          </div>
+          <div class="card">
+            <h3 id="promptText"></h3>
+            <pre class="checklist">Checklist raspuns excelent:
+- Valideaza alerta si spune logurile verificate.
+- Construieste timeline: user, host, IP, proces, hash.
+- Explica severitatea si impactul.
+- Spune containment proportional.
+- Mentioneaza escaladare IR/Threat Hunting.
+- Incheie cu raportare si recomandari.</pre>
+          </div>
+        </section>
+
+        <section id="view-progress" class="view">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Local progress</p>
+              <h2>Progres</h2>
+            </div>
+            <button id="resetBtn" class="pill danger">Reset</button>
+          </div>
+          <div class="metrics">
+            <div class="metric"><span>Capitole</span><strong id="completedMetric">0/0</strong></div>
+            <div class="metric"><span>Best quiz</span><strong id="bestMetric">0%</strong></div>
+            <div class="metric"><span>Teste</span><strong id="runsMetric">0</strong></div>
+          </div>
+          <div class="card">
+            <pre class="checklist">Plan accelerat:
+
+Ziua 1: capitolele 1-4 + quiz complet.
+Ziua 2: capitolele 5-8 + flashcards.
+Ziua 3: capitolele 9-12 + simulator interviu.
+Ziua 4: repeta quiz pana ai peste 90%, apoi scenarii cu voce tare.
+
+Repeta inainte de interviu:
+1. Brute force Windows.
+2. Phishing/BEC in M365.
+3. Tuning regula Wazuh.
+4. Incident timeline.
+5. Prioritizare alerte sub presiune.</pre>
+          </div>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Navigatie principala">
+        <button class="nav-btn active" data-view="learn">Invata</button>
+        <button class="nav-btn" data-view="quiz">Quiz</button>
+        <button class="nav-btn" data-view="cards">Cards</button>
+        <button class="nav-btn" data-view="interview">Interviu</button>
+        <button class="nav-btn" data-view="progress">Progres</button>
+      </nav>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
