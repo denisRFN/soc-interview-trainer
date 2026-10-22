@@ -1,6 +1,6 @@
 # SOC Interview Trainer PWA
 
-PWA statica, offline, pentru telefon si desktop.
+PWA statica, offline, pentru telefon si desktop. Interfata foloseste un stil dark cinematic inspirat de aplicatiile de streaming.
 
 ## Rulare locala
 
